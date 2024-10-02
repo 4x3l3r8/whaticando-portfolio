@@ -25,8 +25,38 @@ export const theme = extendTheme(
     },
     styles: {
       global: () => ({
+        // external styles go here when necessary
+        "*, *:after, *:before": {
+          boxsizing: "inherit",
+        },
+
+        "*::-webkit-scrollbar": {
+          width: "5px",
+          opacity: 0,
+          cursor: "pointer",
+          backgroundColor: "transparent",
+        },
+
+        "*::-webkit-scrollbar:hover": {
+          opacity: 1,
+        },
+
+        "*::-webkit-scrollbar-track": {
+          backgroundColor: "#11071F",
+        },
+
+        "*::-webkit-scrollbar-thumb": {
+          backgroundColor: "#006CCF61",
+          borderRadius: "20px",
+          cursor: "pointer",
+        },
+        html: {
+          scrollBehavior: "smooth",
+          boxSizing: "border-box",
+        },
         body: {
-          fontFamily: `'Josefin Sans Variable', sans-serif`,
+          boxSizing: "border-box",
+          overflowX: "hidden",
         },
       }),
     },

@@ -1,7 +1,8 @@
 import { type Metadata } from "next";
 
-import { TRPCReactProvider } from "@/trpc/react";
 import { Theme } from "@/theme/provider";
+import { TRPCReactProvider } from "@/trpc/react";
+import { Bg } from "./_components/shared";
 
 export const metadata: Metadata = {
   title: "What I Can Do",
@@ -12,13 +13,18 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
   return (
     <html lang="en">
       <body>
         <TRPCReactProvider>
-          <Theme>{children}</Theme>
+          <Theme>
+            <Bg>
+              {children}
+            </Bg>
+          </Theme>
         </TRPCReactProvider>
       </body>
-    </html>
+    </html >
   );
 }
