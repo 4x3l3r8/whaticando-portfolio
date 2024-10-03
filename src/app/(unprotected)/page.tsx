@@ -1,4 +1,4 @@
-import { Hero, Projects, StackSection, ToolsMarquee, WorkExperience } from "../_components/landingPage";
+import { ContactSection, Hero, Projects, StackSection, ToolsMarquee, WorkExperience } from "../_components/landingPage";
 
 
 export default async function Home() {
@@ -9,6 +9,7 @@ export default async function Home() {
       <StackSection />
       <WorkExperience />
       <Projects />
+      <ContactSection />
     </>
   );
 }

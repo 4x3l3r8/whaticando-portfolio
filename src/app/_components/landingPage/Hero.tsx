@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Box, Button, Center, Container, HStack, Image, Stack, Text } from "@chakra-ui/react";
 
-import { RollingImage } from "../shared";
+import { FlyingArrow, RollingImage } from "../shared";
 
 
 
@@ -41,7 +41,7 @@ export const Hero = () => {
                 <Image src="/Group 6.svg" pos={"absolute"} bottom={45} left={10} />
                 <Image src="/Group 10.svg" pos={"absolute"} top={5} right={15} />
             </Center>
-            <Image src="/Arrow.svg" pos={"absolute"} top={10} left={"45%"} />
+            <FlyingArrow />
         </Container>
     );
 }

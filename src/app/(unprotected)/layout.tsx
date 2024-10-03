@@ -1,6 +1,6 @@
 import { Box, Container } from "@chakra-ui/react";
 import { Navbar } from "../_components/landingPage/Navbar";
-import { MovingBox1, MovingBox2 } from "../_components/shared";
+import { Footer, MovingBox1, MovingBox2 } from "../_components/shared";
 
 export default function Layout({ children, }: Readonly<{ children: React.ReactNode }>) {
     return (
@@ -11,6 +11,7 @@ export default function Layout({ children, }: Readonly<{ children: React.ReactNo
             <Container maxW={"8xl"} mt={4} display={"flex"} flexDir={"column"} alignItems={"center"}>
                 {children}
             </Container>
+            <Footer />
         </Box>
     )
 }

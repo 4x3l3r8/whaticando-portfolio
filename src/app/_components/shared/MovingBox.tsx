@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 "use client"
 
-import { Box, BoxProps, Image, keyframes, useColorModeValue } from "@chakra-ui/react";
+import { Box, type BoxProps, chakra, Image, keyframes, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { MdMail } from "react-icons/md"
 
 const morph = keyframes`
     0%  { border-radius: 48% 52% 68% 32% / 42% 28% 72% 58%; background-position: 0% 0%; transform:rotateZ(8deg) }
@@ -172,4 +173,21 @@ const GlassmorphicCard: React.FC<{ children: React.ReactNode } & BoxProps> = ({ 
     );
 };
 
-export { MovingBox1, MovingBox2, RollingImage, Marquee, GlassmorphicCard };
+const arrowKeyframes = keyframes`
+    0% {transform:translateY(0); transform:translateX(0); transform:rotate(0deg)}
+    50% {transform:translateY(10); transform:translateX(10); transform:rotate(90deg)}
+    100% {transform:translateY(0); transform:translateX(0); transform:rotate(0deg)}
+`
+
+const arrowAnimation = `${arrowKeyframes} 5s inear infinite`
+
+const FlyingArrow = () => {
+    return (
+        <Image src="/Arrow.svg" pos={"absolute"} top={10} left={"45%"} animation={arrowAnimation} />
+    )
+}
+
+const Mail = chakra(MdMail)
+
+
+export { MovingBox1, MovingBox2, RollingImage, Marquee, GlassmorphicCard, arrowAnimation, FlyingArrow, Mail };
