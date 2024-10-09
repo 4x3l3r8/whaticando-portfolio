@@ -174,12 +174,12 @@ const GlassmorphicCard: React.FC<{ children: React.ReactNode } & BoxProps> = ({ 
 };
 
 const arrowKeyframes = keyframes`
-    0% {transform:translateY(0); transform:translateX(0); transform:rotate(0deg)}
-    50% {transform:translateY(10); transform:translateX(10); transform:rotate(90deg)}
-    100% {transform:translateY(0); transform:translateX(0); transform:rotate(0deg)}
+    0% {top: 0%; left:45%; }
+    50% {top:3%; left:43%; }
+    100% {top: 0%; left:45%;}
 `
 
-const arrowAnimation = `${arrowKeyframes} 5s inear infinite`
+const arrowAnimation = `${arrowKeyframes} 5s linear infinite`
 
 const FlyingArrow = () => {
     return (
@@ -189,5 +189,28 @@ const FlyingArrow = () => {
 
 const Mail = chakra(MdMail)
 
+const Assets = () => {
+    const pipeKeyframes = keyframes`
+    0% {left:10%; }
+    50% {left:20%; }
+    100% {left:10%;}
+`
+    const pipeAnimation = `${pipeKeyframes} 9s linear infinite`
 
-export { MovingBox1, MovingBox2, RollingImage, Marquee, GlassmorphicCard, arrowAnimation, FlyingArrow, Mail };
+    const starKeyframes = keyframes`
+    0% {transform:scale(1.0)}
+    50% {transform:scale(1.3)}
+    100% {transform:scale(1.0)}
+`
+    const starAnimation = `${starKeyframes} 3s linear infinite`
+
+    return (
+        <>
+            <Image src="/Group 6.svg" pos={"absolute"} bottom={45} left={10} animation={pipeAnimation} />
+            <Image src="/Group 10.svg" pos={"absolute"} top={5} right={15} animation={starAnimation} />
+        </>
+    )
+}
+
+
+export { MovingBox1, MovingBox2, RollingImage, Marquee, GlassmorphicCard, arrowAnimation, FlyingArrow, Mail, Assets };

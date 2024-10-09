@@ -11,6 +11,7 @@
 
 # DB_CONTAINER_NAME="C:\Users\dcadesanya\source\repos\quackAura\whaticando-postgres"
 DB_CONTAINER_NAME="whaticando-postgres"
+DB_NAME="whaticando"
 
 if ! [ -x "$(command -v docker)" ]; then
   echo -e "Docker is not installed. Please install docker and try again.\nDocker install guide: https://docs.docker.com/engine/install/"
@@ -51,6 +52,6 @@ docker run -d \
   --name $DB_CONTAINER_NAME \
   -e POSTGRES_USER="postgres" \
   -e POSTGRES_PASSWORD="$DB_PASSWORD" \
-  -e POSTGRES_DB=C:\Users\dcadesanya\source\repos\quackAura\whaticando \
+  -e POSTGRES_DB="$DB_NAME" \
   -p "$DB_PORT":5432 \
   docker.io/postgres && echo "Database container '$DB_CONTAINER_NAME' was successfully created"

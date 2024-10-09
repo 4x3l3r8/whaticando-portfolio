@@ -1,11 +1,9 @@
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import {
-  getServerSession,
-  type DefaultSession,
-  type NextAuthOptions,
-} from "next-auth";
+import { getServerSession, type DefaultSession, type NextAuthOptions } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
 import DiscordProvider from "next-auth/providers/discord";
+import GithubProvider from "next-auth/providers/github";
+import LinkedInProvider, { LinkedInProfile } from "next-auth/providers/linkedin";
 
 import { env } from "@/env";
 import { db } from "@/server/db";
@@ -51,6 +49,32 @@ export const authOptions: NextAuthOptions = {
     DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
+    }),
+    GithubProvider({
+      clientId: env.GITHUB_CLIENT_ID,
+      clientSecret: env.GITHUB_CLIENT_SECRET,
+    }),
+    LinkedInProvider({
+      clientId: env.LINKEDIN_CLIENT_ID,
+      clientSecret: env.LINKEDIN_CLIENT_SECRET,
+      id: "linkedin",
+      name: "LinkedIn",
+      client: { token_endpoint_auth_method: "client_secret_post" },
+      issuer: "https://www.linkedin.com",
+      wellKnown: "https://www.linkedin.com/oauth/.well-known/openid-configuration",
+      authorization: {
+        params: {
+          scope: "openid profile email",
+        },
+      },
+      profile(profile: LinkedInProfile) {
+        return {
+          id: `${profile.sub}`,
+          name: `${profile.give_name} ${profile.family_name}`,
+          email: `${profile.email}`,
+          image: `${profile.picture}`,
+        };
+      },
     }),
     /**
      * ...add more providers here.

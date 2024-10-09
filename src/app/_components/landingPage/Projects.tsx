@@ -91,7 +91,7 @@ export const Projects = () => {
                                 <Text fontWeight="bold" color="white" fontSize={{ base: "lg", md: "6xl", lg: "3xl", xl: "6xl" }}>
                                     Luminate
                                 </Text>
-                                <Text color="gray" fontSize={{ base: "md", lg: "lg", xl: "xl" }}>
+                                <Text color="white" fontSize={{ base: "md", lg: "lg", xl: "xl" }}>
                                     Luminate is a learning Management System (LMS) using modern web technologies.
                                     The system was designed to provide an intuitive and user-friendly interface for both instructors and students.
                                     It has components for managing course content, including lessons, quizzes, and assignments,

@@ -1,4 +1,4 @@
-import { Box, Button, Center, Heading, Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react";
+import { Box, Button, Center, Heading, Input, InputGroup, InputLeftElement, InputRightElement, Textarea } from "@chakra-ui/react";
 import { Mail } from "../shared";
 
 export const ContactSection = () => {
@@ -35,6 +35,13 @@ export const ContactSection = () => {
                         </Center>
                     </InputRightElement>
                 </InputGroup>
+                <Textarea
+                    placeholder='Leave a message'
+                    size='lg'
+                    mt={3}
+                    resize={"none"}
+                    rounded={"xl"}
+                />
             </Box>
         </Box>
     );

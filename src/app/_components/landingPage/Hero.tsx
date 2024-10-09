@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Box, Button, Center, Container, HStack, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Container, HStack, Stack, Text } from "@chakra-ui/react";
 
-import { FlyingArrow, RollingImage } from "../shared";
+import { Assets, FlyingArrow, RollingImage } from "../shared";
 
 
 
@@ -38,8 +38,7 @@ export const Hero = () => {
             </Stack>
             <Center flex={5} pos={"relative"}>
                 <RollingImage />
-                <Image src="/Group 6.svg" pos={"absolute"} bottom={45} left={10} />
-                <Image src="/Group 10.svg" pos={"absolute"} top={5} right={15} />
+                <Assets />
             </Center>
             <FlyingArrow />
         </Container>
