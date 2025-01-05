@@ -5,26 +5,21 @@ import { TRPCReactProvider } from "@/trpc/react";
 import { Bg } from "./_components/shared";
 
 export const metadata: Metadata = {
-  title: "What I Can Do By Daniel",
-  description: "My very own online portfolio. Everysingle thing about my tech career",
+  title: "What I Can Do | Daniel Adesanya",
+  description: "Daniel Adesanya - software engineer portfolio",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>
         <TRPCReactProvider>
           <Theme>
-            <Bg>
-              {children}
-            </Bg>
+            <Bg>{children}</Bg>
           </Theme>
         </TRPCReactProvider>
       </body>
-    </html >
+    </html>
   );
 }

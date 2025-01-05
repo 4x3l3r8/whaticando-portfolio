@@ -34,7 +34,7 @@ export const AvatarMenu: React.FC<{ user: User }> = ({ user }) => {
                     isDisabled={signedInWithOauth("github")}
                     icon={<FaGithub />}
                 >
-                    Sign in with Github
+                    {signedInWithOauth("github") ? "Signed in" : "Sign in with Github"}
                 </MenuItem>
                 <MenuItem
                     onClick={async () => {
@@ -45,7 +45,7 @@ export const AvatarMenu: React.FC<{ user: User }> = ({ user }) => {
                     isDisabled={signedInWithOauth("linkedin")}
                     icon={<FaLinkedin />}
                 >
-                    Sign in with Linkedin
+                    {signedInWithOauth("linkedin") ? "Signed in" : "Sign in with Linkedin"}
                 </MenuItem>
             </MenuList>
         </Menu>

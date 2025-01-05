@@ -9,25 +9,24 @@ export const postRouter = createTRPCRouter({
     };
   }),
 
-  // create: protectedProcedure
-  //   .input(z.object({ name: z.string().min(1) }))
-  //   .mutation(async ({ ctx, input }) => {
-  //     return ctx.db.blogPost.create({
-  //       data: {
-  //         title: input.name,
-  //         user: { connect: { id: ctx.session.user.id } },
-  //       },
-  //     });
-  //   }),
+  create: protectedProcedure.input(z.object({ name: z.string().min(1), content: z.string() })).mutation(async ({ ctx, input }) => {
+    return ctx.db.blogPost.create({
+      data: {
+        title: input.name,
+        user: { connect: { id: ctx.session.user.id } },
+        content: input.content,
+      },
+    });
+  }),
 
-  // getLatest: protectedProcedure.query(async ({ ctx }) => {
-  //   const post = await ctx.db.blogPost.findFirst({
-  //     orderBy: { createdAt: "desc" },
-  //     where: { user: { id: ctx.session.user.id } },
-  //   });
+  getLatest: protectedProcedure.query(async ({ ctx }) => {
+    const post = await ctx.db.blogPost.findFirst({
+      orderBy: { createdAt: "desc" },
+      where: { user: { id: ctx.session.user.id } },
+    });
 
-  //   return post ?? null;
-  // }),
+    return post ?? null;
+  }),
 
   getSecretMessage: protectedProcedure.query(() => {
     return "you can now see this secret message!";
