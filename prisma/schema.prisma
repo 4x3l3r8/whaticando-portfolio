@@ -23,11 +23,12 @@ model User {
     createdAt     DateTime  @default(now())
     updatedAt     DateTime  @updatedAt
 
-    accounts  Account[]
-    sessions  Session[]
-    profile   Profile?
-    projects  Project[]
-    blogPosts BlogPost[]
+    accounts       Account[]
+    sessions       Session[]
+    profile        Profile?
+    projects       Project[]
+    blogPosts      BlogPost[]
+    WorkExperience WorkExperience[]
 }
 
 model VerificationToken {
@@ -106,6 +107,20 @@ model BlogPost {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     userId    String
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model WorkExperience {
+    id          String    @id @default(cuid())
+    title       String
+    company     String
+    location    String?
+    startDate   DateTime
+    endDate     DateTime?
+    userId      String
+    published   Boolean   @default(false)
+    description String
 
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
