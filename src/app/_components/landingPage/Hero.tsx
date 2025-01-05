@@ -3,6 +3,7 @@ import { Box, Button, Center, Container, HStack, Stack, Text } from "@chakra-ui/
 
 import { Assets, FlyingArrow, RollingImage } from "../shared";
 import { useMemo } from "react";
+import Link from "next/link";
 
 export const Hero = () => {
   const YOE = useMemo(() => {
@@ -43,7 +44,7 @@ export const Hero = () => {
         </Text>
         <HStack>
           <Button size={"lg"}>Say Hi 👋</Button>
-          <Button size={"lg"} variant={"outline"} colorScheme="white">
+          <Button size={"lg"} variant={"outline"} as={Link} href={"https://github.com/4x3l3r8?tab=repositories"} colorScheme="white">
             Discover my works
           </Button>
         </HStack>
