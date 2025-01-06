@@ -1,5 +1,5 @@
-import { Box, Button, Center, Heading, Input, InputGroup, InputLeftElement, InputRightElement, Textarea } from "@chakra-ui/react";
-import { Mail } from "../shared";
+import { Box, Heading } from "@chakra-ui/react";
+import { ContactForm } from "./ContactForm";
 
 export const ContactSection = () => {
   return (
@@ -19,20 +19,8 @@ export const ContactSection = () => {
         <Heading as="span" color="white">
           Lets Discuss
         </Heading>
-        <InputGroup size={"lg"}>
-          <InputLeftElement pointerEvents="none">
-            <Center bg={"white"} h={"70%"} w={"70%"} rounded={"full"}>
-              <Mail fontSize={22} color="primary.300" />
-            </Center>
-          </InputLeftElement>
-          <Input type="email" rounded={"full"} placeholder="Enter Email Address" p={4} pl={"3.5rem"} />
-          <InputRightElement>
-            <Center bg={"white"} h={"70%"} rounded={"full"} justifyContent={"end"} mr={"1.7rem"}>
-              <Button rounded="full">Send</Button>
-            </Center>
-          </InputRightElement>
-        </InputGroup>
-        <Textarea placeholder="Leave a message" size="lg" mt={3} resize={"none"} rounded={"xl"} />
+
+        <ContactForm />
       </Box>
     </Box>
   );
