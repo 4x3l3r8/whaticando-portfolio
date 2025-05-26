@@ -124,3 +124,10 @@ model WorkExperience {
 
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model ContactFormSubmission {
+    id      String @id @default(cuid())
+    name    String
+    email   String
+    message String
+}
